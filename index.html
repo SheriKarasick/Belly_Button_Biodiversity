@@ -17,8 +17,28 @@
     background-size: 100% 100%;
     text-align: center;
     }
-    .body { 
-    background: #563d7c !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    body {background-color: whitesmoke;}
+
+    div.polaroid {
+      width: 284px;
+      padding: 10px 10px 20px 10px;
+      border: 1px solid #BFBFBF;
+      background-color: white;
+      box-shadow: 10px 10px 5px #aaaaaa;
+      }
+      div.rotate_right {
+        float: left;
+        -ms-transform: rotate(7deg); /* IE 9 */
+        -webkit-transform: rotate(7deg); /* Safari */
+        transform: rotate(7deg);
+      }
+
+      div.rotate_left {
+        float: left;
+        -ms-transform: rotate(-8deg); /* IE 9 */
+        -webkit-transform: rotate(-8deg); /* Safari */
+        transform: rotate(-8deg);
+      }
   </style>
 </head>
 
@@ -33,7 +53,8 @@
     </div>
     <div class="row">
       <div class="col-md-2">
-        <div class="well" shadow="p-3 mb-5 bg-white rounded">
+
+        <div class="well">
           <h5>Test Subject ID No.:</h5>
           <!-- <select id="selDataset"></select> -->
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
@@ -42,17 +63,24 @@
           <div class="panel-heading">
             <h3 class="panel-title">Demographic Info</h3>
           </div>
-          <div id="sample-metadata" class="panel-body" shadow="p-3 mb-5 bg-white rounded"></div>
+          <div id="sample-metadata" class="panel-body" bg="light" shadow="p-3 mb-5 bg-white rounded"></div>
         </div>
       </div>
-      <div class="col-md-5" shadow="p-3 mb-5 bg-white rounded">
-        <div id="bar"></div>
+      <div class="col-md-6" >
+        <div id="bar"><p class="bg-info" shadow="p-3 mb-5 bg-white rounded"></p></div>
       </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
+      <div class="col-md-4">
+        <div class="polaroid rotate_left">
+          <img src="https://mediad.publicbroadcasting.net/p/shared/npr/styles/medium/nprshared/202001/658570218.jpg" alt="Clostridia" width="100%" height="100%">
+          <p class="caption"><em>Clostridia</em> is an abundant bacteria found both inside and outside of the human body. <em><small>Photo credit: University of South Florida</small></em></p>
+        </div>
+        <div class="polaroid rotate_right" margin-left="150px">
+          <img src="https://media.sciencephoto.com/image/f0209937/800wm/F0209937-Porphyromonas_gingivalis_oral_bacterium,_illustration.jpg" alt="Clostridia" width="100%" height="100%">
+          <p class="caption"><em>Porphyromona</em> frequents belly buttons but gained infamy as the bacteria that causes gum disease. In 2019,<em>Science Advances</em> published results about a link between <em>Porphyromona</em> in the brain of Alzheimers patients. <em><small>Photo credit: KATERYNA KON / SCIENCE PHOTO LIBRARY</small></em></p>
+        </div>
       </div>
     </div><br /><br />
-    <div class="row" shadow="p-3 mb-5 bg-white rounded">
+    <div class="row" bg="light" shadow="p-3 mb-5 bg-white rounded">
       <div class="col-md-12">
         <div id="bubble"></div>
       </div>

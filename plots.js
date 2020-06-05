@@ -19,6 +19,17 @@ function init() {
     buildCharts2(newSample);
   }
 
+  function pageLoad(item) {
+    //get_940 = result.id[940]
+    d3.json("samples.json").then((data) => {
+    //d3.select(window).on("load", get_940);
+    buildMetadata(940);
+    buildCharts(940);
+    buildCharts2(940);
+  });
+}
+window.onload = pageLoad();
+
 
   function buildMetadata(sample) {
     d3.json("samples.json").then((data) => {
@@ -70,11 +81,11 @@ function init() {
          orientation: "h"
         }];
     
-        var chartLayout = [
-            {
-            title: "title"
-            //axis labels = 
-        }];
+        var chartLayout = {
+            title: "Most Frequently Occuring Bacteria<br /> by ID Number",
+            xaxis: {title: "Number of Individual Bacteria in Sample"},
+            yaxis: {title: "Bacteria ID"}
+        };
         
         Plotly.newPlot("bar", chartData, chartLayout);
         
@@ -121,7 +132,9 @@ function init() {
             
             var layout = {
                 title: 'Belly Button Bacteria Counts',
-                //showlegend: false
+                xaxis: {title: "Specie Identification Number of Bacteria"},
+                yaxis: {title: "Number of Individual Bacteria in Sample"},
+                //showlegend: true,
                 //height: 600,
                 //width: 600
             };
